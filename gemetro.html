@@ -22,21 +22,69 @@
           <div class="card w-80 bg-base-100 shadow-xl">
             <figure><img src="images/triangle.png" alt="Shoes" /></figure>
             <div class="card-body">
-              <h2 class="card-title">Shoes!</h2>
-              <p>If a dog chews shoes whose shoes does he choose?</p>
-              <div class="card-actions justify-end">
-                <button class="btn btn-primary">Buy Now</button>
+              <h2 class="card-title">Triangle</h2>
+              <p>Area (A)=0.5*b*h</p>
+              <div class="flex">
+                <div class="mr-4">
+                  <input
+                    id="triangle-base-input"
+                    class="w-16 bg-gray-200 text-black"
+                    type="text"
+                    placeholder="base"
+                  /><span class="ml-2">cm</span>
+                </div>
+                <div>
+                  <input
+                    id="triangle-height-input"
+                    class="w-16 bg-gray-200 text-black"
+                    type="text"
+                    placeholder="height"
+                  /><span class="ml-2">cm</span>
+                </div>
+              </div>
+              <p class="text-4xl">
+                Area:<span id="triangle-area">0</span>
+                <span>cm<sup>2</sup></span>
+              </p>
+              <div class="card-actions">
+                <button id="triangle-btn" class="btn btn-primary w-full">
+                  Calculate
+                </button>
               </div>
             </div>
           </div>
-          <!-- first card -->
+          <!-- second card -->
           <div class="card w-80 bg-base-100 shadow-xl">
             <figure><img src="images/rectangle.png" alt="Shoes" /></figure>
             <div class="card-body">
-              <h2 class="card-title">Shoes!</h2>
-              <p>If a dog chews shoes whose shoes does he choose?</p>
-              <div class="card-actions justify-end">
-                <button class="btn btn-primary">Buy Now</button>
+              <h2 class="card-title">Rectangle</h2>
+              <p>Area (A)=w x l</p>
+              <div class="flex">
+                <div class="mr-4">
+                  <input
+                    id="rectangle-width-input"
+                    class="w-16 bg-gray-200 text-black"
+                    type="text"
+                    placeholder="width"
+                  /><span class="ml-2">cm</span>
+                </div>
+                <div>
+                  <input
+                    id="rectangle-length-input"
+                    class="w-16 bg-gray-200 text-black"
+                    type="text"
+                    placeholder="length"
+                  /><span class="ml-2">cm</span>
+                </div>
+              </div>
+              <p class="text-4xl">
+                Area:<span id="rectangle-area">0</span>
+                <span>cm<sup>2</sup></span>
+              </p>
+              <div class="card-actions">
+                <button id="rectangle-btn" class="btn btn-primary w-full">
+                  Calculate
+                </button>
               </div>
             </div>
           </div>
@@ -59,5 +107,6 @@
         </div>
       </div>
     </main>
+    <script src="js/geometri.js"></script>
   </body>
 </html>
