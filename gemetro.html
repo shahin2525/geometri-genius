@@ -89,17 +89,41 @@
             </div>
           </div>
           <!-- first card -->
+          <!-- second card -->
           <div class="card w-80 bg-base-100 shadow-xl">
-            <figure><img src="images/rectangle.png" alt="Shoes" /></figure>
+            <figure><img src="images/parallelogram.png" alt="Shoes" /></figure>
             <div class="card-body">
-              <h2 class="card-title">Shoes!</h2>
-              <p>If a dog chews shoes whose shoes does he choose?</p>
-              <div class="card-actions justify-end">
-                <button class="btn btn-primary">Buy Now</button>
+              <h2 class="card-title">Parallelogram</h2>
+              <p>Area (A)=w x l</p>
+              <div class="flex">
+                <div class="mr-4">
+                  <input
+                    id="parallelogram-base-input"
+                    class="w-16 bg-gray-200 text-black"
+                    type="text"
+                    placeholder="base"
+                  /><span class="ml-2">cm</span>
+                </div>
+                <div>
+                  <input
+                    id="parallelogram-height-input"
+                    class="w-16 bg-gray-200 text-black"
+                    type="text"
+                    placeholder="height"
+                  /><span class="ml-2">cm</span>
+                </div>
+              </div>
+              <p class="text-4xl">
+                Area:<span id="parallelogram-area">0</span>
+                <span>cm<sup>2</sup></span>
+              </p>
+              <div class="card-actions">
+                <button id="parallelogram-btn" class="btn btn-primary w-full">
+                  Calculate
+                </button>
               </div>
             </div>
           </div>
-          <!-- first card -->
         </div>
         <!-- area calculate container -->
         <div>
