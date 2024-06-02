@@ -42,42 +42,29 @@ document.getElementById("parallelogram-btn").addEventListener("click", () => {
   const parallelogramBaseInput = getInputField("parallelogram-base-input");
 
   const parallelogramHeightInput = getInputField("parallelogram-height-input");
-  console.log(parallelogramHeightInput);
-
-  const previousParallelogramArea = getPreviousTextField("parallelogram-area");
-
   const newParallelogramArea =
     parallelogramBaseInput * parallelogramHeightInput;
-  previousParallelogramArea.innerText = newParallelogramArea;
 
-  // const rectangleWidthInput = document.getElementById("rectangle-width-input");
-  // const rectangleWidthInputString = rectangleWidthInput.value;
-  // const rectangleWidthInputNumber = parseFloat(rectangleWidthInputString);
-  // console.log(rectangleWidthInputNumber);
-  // const rectangleInputLength = document.getElementById(
-  //   "rectangle-length-input"
-  // );
-  // const rectangleInputLengthString = rectangleInputLength.value;
-  // const rectangleInputLengthNumber = parseFloat(rectangleInputLengthString);
-  // console.log(rectangleInputLengthNumber);
-  // const rectangleArea = rectangleWidthInputNumber * rectangleInputLengthNumber;
-  // const previousTriangleAreaText = document.getElementById("rectangle-area");
-  // const previousTriangleAreaString = previousTriangleAreaText.innerText;
-  // const previousTriangleAreaNumber = parseFloat(previousTriangleAreaString);
-  // const newTriangleArea = previousTriangleAreaNumber + rectangleArea;
-  // previousTriangleAreaText.innerText = newTriangleArea;
+  const previousParallelogramArea = setTextField(
+    "parallelogram-area",
+    newParallelogramArea
+  );
 });
 
 const getInputField = (fieldId) => {
   const inputValueField = document.getElementById(fieldId);
   const inputValueString = inputValueField.value;
+  if (inputValueField.value < 0 || inputValueField.value == "") {
+    alert("provide number");
+    return;
+  }
 
   const inputValueNumber = parseFloat(inputValueString);
   return inputValueNumber;
 };
-const getPreviousTextField = (fieldId) => {
+const setTextField = (fieldId, area) => {
   const previousFieldText = document.getElementById(fieldId);
-  const previousTextString = previousFieldText.innerText;
-  const previousTextNumber = parseFloat(previousTextString);
-  return previousTextNumber;
+  previousFieldText.innerText = area;
+
+  return previousFieldText;
 };
