@@ -38,6 +38,8 @@ document.getElementById("rectangle-btn").addEventListener("click", () => {
   previousTriangleAreaText.innerText = newTriangleArea;
 });
 
+// parallelogram
+
 document.getElementById("parallelogram-btn").addEventListener("click", () => {
   const parallelogramBaseInput = getInputField("parallelogram-base-input");
 
@@ -56,14 +58,20 @@ const getInputField = (fieldId) => {
   const inputValueString = inputValueField.value;
   if (inputValueField.value < 0 || inputValueField.value == "") {
     alert("provide number");
+
     return;
   }
 
   const inputValueNumber = parseFloat(inputValueString);
+  inputValueField.value = "";
   return inputValueNumber;
 };
 const setTextField = (fieldId, area) => {
   const previousFieldText = document.getElementById(fieldId);
+  console.log(area);
+  if (isNaN(area)) {
+    return;
+  }
   previousFieldText.innerText = area;
 
   return previousFieldText;
