@@ -1,44 +1,31 @@
+// triangle calculation
 document.getElementById("triangle-btn").addEventListener("click", () => {
-  const triangleBaseInput = document.getElementById("triangle-base-input");
-  const triangleBaseInputString = triangleBaseInput.value;
+  const triangleBaseInput = getInputField("triangle-base-input");
 
-  const triangleBaseInputNumber = parseFloat(triangleBaseInputString);
-  console.log(triangleBaseInputNumber);
-  const triangleInputHeight = document.getElementById("triangle-height-input");
-  const triangleInputHeightString = triangleInputHeight.value;
-  const triangleInputHeightNumber = parseFloat(triangleInputHeightString);
-  console.log(triangleInputHeightNumber);
-  const triangleArea =
-    0.5 * triangleBaseInputNumber * triangleInputHeightNumber;
-  const previousTriangleAreaText = document.getElementById("triangle-area");
-  const previousTriangleAreaString = previousTriangleAreaText.innerText;
-  const previousTriangleAreaNumber = parseFloat(previousTriangleAreaString);
-  const newTriangleArea = previousTriangleAreaNumber + triangleArea;
-  previousTriangleAreaText.innerText = newTriangleArea;
+  const triangleInputHeight = getInputField("triangle-height-input");
+
+  const triangleArea = 0.5 * triangleBaseInput * triangleInputHeight;
+  const previousTriangleAreaText = setTextField("triangle-area", triangleArea);
+  // const previousTriangleAreaString = previousTriangleAreaText.innerText;
+  // const previousTriangleAreaNumber = parseFloat(previousTriangleAreaString);
+  // const newTriangleArea = previousTriangleAreaNumber + triangleArea;
+  // previousTriangleAreaText.innerText = newTriangleArea;
 });
 
-// rectangle
+// rectangle calculation
 document.getElementById("rectangle-btn").addEventListener("click", () => {
-  const rectangleWidthInput = document.getElementById("rectangle-width-input");
-  const rectangleWidthInputString = rectangleWidthInput.value;
+  const rectangleWidthInput = getInputField("rectangle-width-input");
 
-  const rectangleWidthInputNumber = parseFloat(rectangleWidthInputString);
-  console.log(rectangleWidthInputNumber);
-  const rectangleInputLength = document.getElementById(
-    "rectangle-length-input"
+  const rectangleInputLength = getInputField("rectangle-length-input");
+
+  const rectangleArea = rectangleWidthInput * rectangleInputLength;
+  const previousTriangleAreaText = setTextField(
+    "rectangle-area",
+    rectangleArea
   );
-  const rectangleInputLengthString = rectangleInputLength.value;
-  const rectangleInputLengthNumber = parseFloat(rectangleInputLengthString);
-  console.log(rectangleInputLengthNumber);
-  const rectangleArea = rectangleWidthInputNumber * rectangleInputLengthNumber;
-  const previousTriangleAreaText = document.getElementById("rectangle-area");
-  const previousTriangleAreaString = previousTriangleAreaText.innerText;
-  const previousTriangleAreaNumber = parseFloat(previousTriangleAreaString);
-  const newTriangleArea = previousTriangleAreaNumber + rectangleArea;
-  previousTriangleAreaText.innerText = newTriangleArea;
 });
 
-// parallelogram
+// parallelogram calculation
 
 document.getElementById("parallelogram-btn").addEventListener("click", () => {
   const parallelogramBaseInput = getInputField("parallelogram-base-input");
@@ -52,6 +39,15 @@ document.getElementById("parallelogram-btn").addEventListener("click", () => {
     newParallelogramArea
   );
 });
+
+// ellipse calculation
+const ellipseCalculation = () => {
+  const ellipseMajor = getInputField("ellipse-major-input");
+  const ellipseMinor = getInputField("ellipse-minor-input");
+  const ellipseArea = 3.1416 * ellipseMajor * ellipseMinor;
+  const ellipseToDecimal = ellipseArea.toFixed(2);
+  setTextField("ellipse-area", ellipseToDecimal);
+};
 
 const getInputField = (fieldId) => {
   const inputValueField = document.getElementById(fieldId);
@@ -68,7 +64,7 @@ const getInputField = (fieldId) => {
 };
 const setTextField = (fieldId, area) => {
   const previousFieldText = document.getElementById(fieldId);
-  console.log(area);
+  // console.log(area);
   if (isNaN(area)) {
     return;
   }

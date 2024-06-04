@@ -124,6 +124,44 @@
               </div>
             </div>
           </div>
+          <div class="card w-80 bg-base-100 shadow-xl">
+            <figure><img src="images/ellipse.png" alt="Shoes" /></figure>
+            <div class="card-body">
+              <h2 class="card-title">Parallelogram</h2>
+              <p>Area (A)=Π ab</p>
+              <div class="flex">
+                <div class="mr-4">
+                  <input
+                    id="ellipse-major-input"
+                    class="w-16 bg-gray-200 text-black"
+                    type="text"
+                    placeholder="major"
+                  /><span class="ml-2">cm</span>
+                </div>
+                <div>
+                  <input
+                    id="ellipse-minor-input"
+                    class="w-16 bg-gray-200 text-black"
+                    type="text"
+                    placeholder="minor"
+                  /><span class="ml-2">cm</span>
+                </div>
+              </div>
+              <p class="text-4xl">
+                Area:<span id="ellipse-area">0</span>
+                <span>cm<sup>2</sup></span>
+              </p>
+              <div class="card-actions">
+                <button
+                  onclick="ellipseCalculation()"
+                  id="ellipse-btn"
+                  class="btn btn-primary w-full"
+                >
+                  Calculate
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
         <!-- area calculate container -->
         <div>
