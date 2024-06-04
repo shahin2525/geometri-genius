@@ -5,11 +5,8 @@ document.getElementById("triangle-btn").addEventListener("click", () => {
   const triangleInputHeight = getInputField("triangle-height-input");
 
   const triangleArea = 0.5 * triangleBaseInput * triangleInputHeight;
-  const previousTriangleAreaText = setTextField("triangle-area", triangleArea);
-  // const previousTriangleAreaString = previousTriangleAreaText.innerText;
-  // const previousTriangleAreaNumber = parseFloat(previousTriangleAreaString);
-  // const newTriangleArea = previousTriangleAreaNumber + triangleArea;
-  // previousTriangleAreaText.innerText = newTriangleArea;
+  setTextField("triangle-area", triangleArea);
+  calculationAreaEntry("triangle", triangleArea);
 });
 
 // rectangle calculation
@@ -19,10 +16,8 @@ document.getElementById("rectangle-btn").addEventListener("click", () => {
   const rectangleInputLength = getInputField("rectangle-length-input");
 
   const rectangleArea = rectangleWidthInput * rectangleInputLength;
-  const previousTriangleAreaText = setTextField(
-    "rectangle-area",
-    rectangleArea
-  );
+  setTextField("rectangle-area", rectangleArea);
+  calculationAreaEntry("rectangle", rectangleArea);
 });
 
 // parallelogram calculation
@@ -34,10 +29,8 @@ document.getElementById("parallelogram-btn").addEventListener("click", () => {
   const newParallelogramArea =
     parallelogramBaseInput * parallelogramHeightInput;
 
-  const previousParallelogramArea = setTextField(
-    "parallelogram-area",
-    newParallelogramArea
-  );
+  setTextField("parallelogram-area", newParallelogramArea);
+  calculationAreaEntry("parallelogram", newParallelogramArea);
 });
 
 // ellipse calculation
@@ -47,8 +40,10 @@ const ellipseCalculation = () => {
   const ellipseArea = 3.1416 * ellipseMajor * ellipseMinor;
   const ellipseToDecimal = ellipseArea.toFixed(2);
   setTextField("ellipse-area", ellipseToDecimal);
+  calculationAreaEntry("Ellipse", ellipseArea);
 };
 
+// calculation functionality
 const getInputField = (fieldId) => {
   const inputValueField = document.getElementById(fieldId);
   const inputValueString = inputValueField.value;
@@ -64,11 +59,25 @@ const getInputField = (fieldId) => {
 };
 const setTextField = (fieldId, area) => {
   const previousFieldText = document.getElementById(fieldId);
-  // console.log(area);
+
   if (isNaN(area)) {
     return;
   }
   previousFieldText.innerText = area;
 
   return previousFieldText;
+};
+
+// calculation area entry
+
+const calculationAreaEntry = (areaType, area) => {
+  const areaCalculationContainer = document.getElementById("area-calculation");
+  const count = areaCalculationContainer.childElementCount;
+  const p = document.createElement("p");
+  p.classList.add("my-2");
+
+  p.innerHTML = ` ${
+    count + 1
+  }. ${areaType} ${area} <span>cm</spam><sup>2</sup> <button class="btn btn-secondary w-16 btn-sm text-black">converted</button>`;
+  areaCalculationContainer.appendChild(p);
 };
